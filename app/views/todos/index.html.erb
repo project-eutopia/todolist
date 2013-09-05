@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <%= form_tag todos_url, method: 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", todo: nil %>
+  <% end %>
+
+  <% if params[:search] %>
+    <%= button_to "Clear search", todos_path, method: :get %>
+    </p><p>Found <%= search_count %> hits
+  <% end %>
+</p>
+
 <table>
   <tr>
     <th>Todo task</th>
@@ -26,6 +38,9 @@
 
 <%= button_to 'Remove all complete', remove_all_complete_todos_path, method: :delete, data: { confirm: 'Are you sure?' } %>
   
+<hr>
+  
+<%= paginate @todos %>
 
 <br />
 

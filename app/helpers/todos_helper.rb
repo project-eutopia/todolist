@@ -15,5 +15,9 @@ module TodosHelper
     
     sum
   end
+  
+  def search_count
+    @todos.size
+  end
 
 end

@@ -5,6 +5,7 @@ Todolist::Application.routes.draw do
     end
     
     collection do
+      get 'clear_search', to: 'todos#clear_search'
       delete 'remove_all_complete', to: 'todos#remove_all_complete'
     end
   end
