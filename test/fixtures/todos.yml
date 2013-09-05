@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  todo: done 1
+  done: true
+
+two:
+  todo: not done
+  done: false
+
+three:
+  todo: not done still!
+  done: false
+
+four:
+  todo: finished~~
+  done: true

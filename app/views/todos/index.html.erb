@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th>Todo task</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @todos.each do |todo| %>
+  <tr>
+    <td>
+      <% if todo.done %>
+        <font color="gray"><strike><%= todo.todo %></strike></font>
+      <% else %>
+        <%= todo.todo %>
+      <% end %>
+    </td>
+    <td><%= button_to 'Edit', edit_todo_path(todo), method: :get %></td>
+    <td><%= button_to 'Finished', finished_todo_path(todo) %></td>
+    <td><%= button_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= button_to 'Remove all complete', remove_all_complete_todos_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+  
+
+<br />
+
+<%= link_to 'New Todo', new_todo_path, method: :get %>
+<p>Remaining tasks: <%= incomplete_count %> out of <%= count %></p>

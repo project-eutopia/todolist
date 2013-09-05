@@ -1,0 +1,28 @@
+<%= form_for(@todo) do |f| %>
+  <% if @todo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+
+      <ul>
+      <% @todo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <!-- this is how to check if "new" or "edit"
+    <h3><%= f.object.new_record? ? "new" : "edit" %></h3>
+  -->
+
+  <div class="field">
+    <%= f.label :todo %><br />
+    <%= f.text_field :todo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+    <% if f.object.new_record? == false %>
+      <%= button_to 'Delete', f.object, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+<% end %>

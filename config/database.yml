@@ -14,8 +14,9 @@ development:
   reconnect: false
   database: todolist_development
   pool: 5
+  host: localhost
   username: root
-  password:
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -27,8 +28,9 @@ test:
   reconnect: false
   database: todolist_test
   pool: 5
+  host: localhost
   username: root
-  password:
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -38,5 +40,5 @@ production:
   database: todolist_production
   pool: 5
   username: root
-  password:
+  password: 
   socket: /var/run/mysqld/mysqld.sock
