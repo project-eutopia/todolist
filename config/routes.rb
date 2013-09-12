@@ -9,10 +9,12 @@ Todolist::Application.routes.draw do
       member do
         post :finished
       end
-      
-      collection do
-        get 'clear_search', to: 'todos#clear_search'
-        delete 'remove_all_complete', to: 'todos#remove_all_complete'
+    end
+    
+    resources :users do
+      member do
+        get 'clear_search', to: 'users#clear_search'
+        delete 'remove_all_complete', to: 'users#remove_all_complete'
       end
     end
     

@@ -2,12 +2,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    if params[:search].present?
-      array = Todo.search(params[:search])
-      @todos = Kaminari.paginate_array(array).page(params[:page])
-    else
-      @todos = Todo.page(params[:page])
-    end
+    @todos = Todo.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -98,20 +93,6 @@ class TodosController < ApplicationController
       format.html { redirect_to root_path }
       format.json { head :no_content }
     end
-  end
-  
-  def remove_all_complete
-    Todo.remove_all_complete
-
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { head :no_content }
-    end
-  end
-  
-  def clear_search
-    params[:search] = nil
-    render index
   end
   
 end

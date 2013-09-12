@@ -23,6 +23,11 @@ jp:
     password_confirmation: "パスワード確認"
     remember_me?: "覚えます?"
   
+    sessions:
+      user:
+        signed_in: "ログインしました"
+        signed_out: "ログアウトしました"
+
   layouts:
     application:
       title: "Todolist"

@@ -22,6 +22,11 @@ en:
     password: "Password"
     password_confirmation: "Password confirmation"
     remember_me?: "Remember me?"
+    
+    sessions:
+      user:
+        signed_in: "Signed in successfully"
+        signed_out: "Signed out successfully"
   
   layouts:
     application:
