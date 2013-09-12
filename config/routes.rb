@@ -1,5 +1,7 @@
 Todolist::Application.routes.draw do
 
+  devise_for :users
+
   scope '(:locale)' do
     resources :todos do
       member do
