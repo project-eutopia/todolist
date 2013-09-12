@@ -1,6 +1,4 @@
-
-
-<%= simple_form_for @todo, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @todo, :html => { class: 'form-horizontal' } do |f| %>
   <% if @todo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@todo.errors.count, "error") %> <%= t('.error_msg') %>:</h2>
@@ -21,7 +19,7 @@
     <% end %>
   </legend>
   
-  <%= f.input :todo, :input_html => { :class => "span6" } %>
+  <%= f.input :todo, :input_html => { class: "span6" } %>
   <% if f.object.new_record? == false %>
     <%= f.input :done, label: t('.done'), as: :boolean %>
   <% end %>

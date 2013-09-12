@@ -10,6 +10,16 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+    
+  devise:
+    forgot_your_password?: "Forgot your password?"
+    didnt_receive_confirmation?: "Didn't receive confirmation instructions?"
+    didnt_receive_unlock?: "Didn't receive unlock instructions?"
+    sign_up: "Sign up"
+    sign_in: "Sign in"
+    email: "Email address"
+    password: "Password"
+    password_confirmation: "Password confirmation"
   
   layouts:
     application:

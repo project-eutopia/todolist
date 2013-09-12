@@ -9,13 +9,24 @@
 </head>
 <body>
 
-<h1><%= t('.title') %></h1>
+<div class="container-narrow">
+  <div class="masthead">
+    <%= render 'layouts/user_header' %>
+    <h4 class="muted"><%= link_to t('.title'), root_path %></h4>
+  </div>
+  <hr />
 
-<hr>
+  <% if notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  
+  <%= yield %>
 
-<p class="notice"><%= notice %></p>
-
-<%= yield %>
+</div>
 
 </body>
 </html>
