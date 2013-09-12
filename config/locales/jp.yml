@@ -1,0 +1,49 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+jp:
+
+  views:
+    pagination:
+      first: "&laquo; 最初"
+      last: "最後 &raquo;"
+      previous: "&lsaquo; 前"
+      next: "次 &rsaquo;"
+      truncate: "&hellip;"
+  
+  layouts:
+    application:
+      title: "Todolist"
+
+  todos:
+  
+    index:
+      search: "検索"
+      clear_search: "検索をクリア"
+      edit: "編集"
+      finished: "完成"
+      delete: "削除"
+      remove_all_complete: "完成したのをすべて削除"
+      new_todo: "新しいtodoを作る"
+      remaining_tasks: "完成していないtodo"
+      out_of: "／"
+      
+    edit:
+      creating: "更新"
+      editing: "todoの編集"
+      show: "表示する"
+      back: "戻る"
+      
+    form:
+      error_msg: "prohibited this todo from being saved"
+      create: "作成"
+      update: "更新"
+      delete: "削除"
+  
+  are_you_sure?: "よろしいですか?"
+
+  helpers:
+    submit:
+      create: "作成"
+      update: "更新"
+      cancel: "caaaane"

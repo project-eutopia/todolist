@@ -25,6 +25,10 @@ gem 'jquery-rails'
 # For pagination
 gem 'kaminari'
 
+# For getting Twitter bootstrap CSS layouts
+gem 'bootstrap-sass'
+gem 'simple_form'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,15 +1,22 @@
 Todolist::Application.routes.draw do
-  resources :todos do
-    member do
-      post :finished
+
+  scope '(:locale)' do
+    resources :todos do
+      member do
+        post :finished
+      end
+      
+      collection do
+        get 'clear_search', to: 'todos#clear_search'
+        delete 'remove_all_complete', to: 'todos#remove_all_complete'
+      end
     end
     
-    collection do
-      get 'clear_search', to: 'todos#clear_search'
-      delete 'remove_all_complete', to: 'todos#remove_all_complete'
-    end
+    # You can have the root of your site routed with "root"
+    # just remember to delete public/index.html.
+    root :to => 'todos#index'
   end
-  
+
 
 
   # The priority is based upon order of creation:
@@ -58,10 +65,6 @@ Todolist::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => 'todos#index'
 
   # See how all your routes lay out with "rake routes"
 

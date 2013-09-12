@@ -3,18 +3,18 @@
 <p>
   <%= form_tag todos_url, method: 'get' do %>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", todo: nil %>
+    <%= submit_tag t('.search'), todo: nil, class: 'btn btn-default' %>
   <% end %>
 
-  <% if params[:search] %>
-    <%= button_to "Clear search", todos_path, method: :get %>
+  <% if params[:search].present? %>
+    <%= button_to t('.clear_search'), todos_path, method: :get, class: 'btn btn-default' %>
     </p><p>Found <%= search_count %> hits
   <% end %>
 </p>
 
 <table>
   <tr>
-    <th>Todo task</th>
+    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -29,14 +29,20 @@
         <%= todo.todo %>
       <% end %>
     </td>
-    <td><%= button_to 'Edit', edit_todo_path(todo), method: :get %></td>
-    <td><%= button_to 'Finished', finished_todo_path(todo) %></td>
-    <td><%= button_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= button_to t('.edit'), edit_todo_path(todo), method: :get, class: 'btn btn-default' %></td>
+    <td>
+      <%= button_to t('.finished'), finished_todo_path(todo), class: 'btn btn-default' unless todo.done %>
+    </td>
+    <td><%= button_to t('.delete'), todo, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %></td>
   </tr>
 <% end %>
 </table>
 
-<%= button_to 'Remove all complete', remove_all_complete_todos_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if (Todo.count - Todo.incomplete_count) > 0 %>
+  <%= button_to t('.remove_all_complete'), remove_all_complete_todos_path, method: :delete,
+    data: { confirm: t('are_you_sure?') }, class: 'btn btn-default' %>
+<% end %>
+<%= button_to t('.new_todo'), new_todo_path, method: :get, class: 'btn btn-primary' %>
   
 <hr>
   
@@ -44,5 +50,4 @@
 
 <br />
 
-<%= link_to 'New Todo', new_todo_path, method: :get %>
-<p>Remaining tasks: <%= incomplete_count %> out of <%= count %></p>
+<p><%= t('.remaining_tasks') %>: <%= Todo.incomplete_count %> <%= t('.out_of') %> <%= Todo.count %></p>

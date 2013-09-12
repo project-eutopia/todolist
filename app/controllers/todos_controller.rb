@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    if params[:search]
+    if params[:search].present?
       array = Todo.search(params[:search])
       @todos = Kaminari.paginate_array(array).page(params[:page])
     else
@@ -99,11 +99,7 @@ class TodosController < ApplicationController
   end
   
   def remove_all_complete
-    Todo.all.each do |todo|
-      if todo.done == true
-        todo.destroy
-      end
-    end
+    Todo.remove_all_complete
 
     respond_to do |format|
       format.html { redirect_to todos_url }

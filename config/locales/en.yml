@@ -2,9 +2,48 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
 
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  
+  layouts:
+    application:
+      title: "Todolist"
+
+  todos:
+  
+    index:
+      search: "Search"
+      clear_search: "Clear search"
+      edit: "Edit"
+      finished: "Finished"
+      delete: "Delete"
+      remove_all_complete: "Remove all complete"
+      new_todo: "New todo"
+      remaining_tasks: "Remaining tasks"
+      out_of: "out of"
+      
+    edit:
+      creating: "Creating"
+      editing: "Editing todo"
+      show: "Show"
+      back: "Back"
+      
+    form:
+      error_msg: "prohibited this todo from being saved"
+      create: "Create"
+      update: "Update"
+      delete: "Delete"
+  
+  are_you_sure?: "Are you sure?"
+  
   helpers:
     submit:
       create: "Create"
       update: "Update"
+

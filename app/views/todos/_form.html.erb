@@ -1,7 +1,9 @@
-<%= form_for(@todo) do |f| %>
+
+
+<%= simple_form_for @todo, :html => { :class => 'form-horizontal' } do |f| %>
   <% if @todo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@todo.errors.count, "error") %> prohibited this todo from being saved:</h2>
+      <h2><%= pluralize(@todo.errors.count, "error") %> <%= t('.error_msg') %>:</h2>
 
       <ul>
       <% @todo.errors.full_messages.each do |msg| %>
@@ -11,18 +13,27 @@
     </div>
   <% end %>
   
-  <!-- this is how to check if "new" or "edit"
-    <h3><%= f.object.new_record? ? "new" : "edit" %></h3>
-  -->
-
-  <div class="field">
-    <%= f.label :todo %><br />
-    <%= f.text_field :todo %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-    <% if f.object.new_record? == false %>
-      <%= button_to 'Delete', f.object, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <legend>
+    <% if f.object.new_record? %>
+      <%= t('.creating') %>
+    <% else %>
+      <%= t('.editing') %>
     <% end %>
+  </legend>
+  
+  <%= f.input :todo, :input_html => { :class => "span6" } %>
+  <% if f.object.new_record? == false %>
+    <%= f.input :done, :as => :boolean %>
+  <% end %>
+  
+  <div class="form-actions">
+    
+    <% if f.object.new_record? %>
+      <%= f.button :submit, :class => 'btn-primary' %>
+    <% else %>
+      <%= button_to t('.update'), f.object, method: :post, class: 'btn btn-primary' %>
+      <%= button_to t('.delete'), f.object, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %>
+    <% end %>
+    
   </div>
 <% end %>

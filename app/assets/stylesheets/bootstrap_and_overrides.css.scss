@@ -1,0 +1,14 @@
+/*
+ * Based on description at: http://railsapps.github.io/twitter-bootstrap-rails.html
+ */
+
+@import "bootstrap";
+body {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+table {
+    max-width: none;
+}
+@import "bootstrap-responsive";
