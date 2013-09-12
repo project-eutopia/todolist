@@ -1,0 +1,12 @@
+<p>
+  
+  <%= form_tag todos_url, method: 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag t('.search'), todo: nil, class: 'btn btn-default' %>
+  <% end %>
+  
+  <% if params[:search].present? %>
+    <%= button_to t('.clear_search'), todos_path, method: :get, class: 'btn btn-default' %>
+    </p><p>Found <%= search_count %> hits
+  <% end %>
+</p>

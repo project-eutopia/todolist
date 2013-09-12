@@ -1,51 +1,59 @@
-<p>
-  <%= form_tag todos_url, method: 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag t('.search'), todo: nil, class: 'btn btn-default' %>
+<% if user_signed_in? %>
+
+  <p>
+    <%= form_tag todos_url, method: 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag t('.search'), todo: nil, class: 'btn btn-default' %>
+    <% end %>
+
+    <% if params[:search].present? %>
+      <%= button_to t('.clear_search'), todos_path, method: :get, class: 'btn btn-default' %>
+      </p><p>Found <%= search_count %> hits
+    <% end %>
+  </p>
+
+  <table>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @todos.each do |todo| %>
+    <tr>
+      <td>
+        <% if todo.done %>
+          <font color="gray"><strike><%= todo.todo %></strike></font>
+        <% else %>
+          <%= todo.todo %>
+        <% end %>
+      </td>
+      <td><%= button_to t('.edit'), edit_todo_path(todo), method: :get, class: 'btn btn-default' %></td>
+      <td>
+        <%= button_to t('.finished'), finished_todo_path(todo), class: 'btn btn-default' unless todo.done %>
+      </td>
+      <td><%= button_to t('.delete'), todo, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %></td>
+    </tr>
   <% end %>
+  </table>
 
-  <% if params[:search].present? %>
-    <%= button_to t('.clear_search'), todos_path, method: :get, class: 'btn btn-default' %>
-    </p><p>Found <%= search_count %> hits
+  <% if (Todo.count - Todo.incomplete_count) > 0 %>
+    <%= button_to t('.remove_all_complete'), remove_all_complete_todos_path, method: :delete,
+      data: { confirm: t('are_you_sure?') }, class: 'btn btn-default' %>
   <% end %>
-</p>
+  <%= button_to t('.new_todo'), new_todo_path, method: :get, class: 'btn btn-primary' %>
+    
+  <hr>
+    
+  <%= paginate @todos %>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <br />
 
-<% @todos.each do |todo| %>
-  <tr>
-    <td>
-      <% if todo.done %>
-        <font color="gray"><strike><%= todo.todo %></strike></font>
-      <% else %>
-        <%= todo.todo %>
-      <% end %>
-    </td>
-    <td><%= button_to t('.edit'), edit_todo_path(todo), method: :get, class: 'btn btn-default' %></td>
-    <td>
-      <%= button_to t('.finished'), finished_todo_path(todo), class: 'btn btn-default' unless todo.done %>
-    </td>
-    <td><%= button_to t('.delete'), todo, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %></td>
-  </tr>
-<% end %>
-</table>
+  <p><%= t('.remaining_tasks') %>: <%= Todo.incomplete_count %> <%= t('.out_of') %> <%= Todo.count %></p>
 
-<% if (Todo.count - Todo.incomplete_count) > 0 %>
-  <%= button_to t('.remove_all_complete'), remove_all_complete_todos_path, method: :delete,
-    data: { confirm: t('are_you_sure?') }, class: 'btn btn-default' %>
-<% end %>
-<%= button_to t('.new_todo'), new_todo_path, method: :get, class: 'btn btn-primary' %>
   
-<hr>
-  
-<%= paginate @todos %>
-
-<br />
-
-<p><%= t('.remaining_tasks') %>: <%= Todo.incomplete_count %> <%= t('.out_of') %> <%= Todo.count %></p>
+<% else %>
+  <%= button_to "Sign in", new_user_session_path, method: :get, class: "btn btn-primary" %>
+  <%= button_to "Sign up", new_user_registration_path, method: :get, class: "btn btn-primary" %>
+<% end %>

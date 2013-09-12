@@ -1,5 +1,7 @@
 class Todo < ActiveRecord::Base
-  attr_accessible :done, :todo
+  attr_accessible :done, :todo, :user_id
+  
+  belongs_to :user
   
   paginates_per 5
   

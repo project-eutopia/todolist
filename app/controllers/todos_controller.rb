@@ -47,10 +47,12 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(params[:todo])
+    # Set the user who owns this
+    @todo.user = current_user
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to todos_url, notice: 'Todo was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Todo was successfully created.' }
         format.json { render json: @todo, status: :created, location: @todo }
       else
         format.html { render action: "new" }
@@ -66,7 +68,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.update_attributes(params[:todo])
-        format.html { redirect_to todos_url, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Todo was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -82,7 +84,7 @@ class TodosController < ApplicationController
     @todo.destroy
 
     respond_to do |format|
-      format.html { redirect_to todos_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -93,7 +95,7 @@ class TodosController < ApplicationController
     @todo.save
     
     respond_to do |format|
-      format.html { redirect_to todos_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -102,7 +104,7 @@ class TodosController < ApplicationController
     Todo.remove_all_complete
 
     respond_to do |format|
-      format.html { redirect_to todos_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,33 @@
+<table>
+<% @todos.each do |todo| %>
+  <tr>
+    <td>
+      <% if todo.done %>
+        <font color="gray"><strike><%= todo.todo %></strike></font>
+      <% else %>
+        <%= todo.todo %>
+      <% end %>
+    </td>
+    <td><%= button_to t('.edit'), edit_todo_path(todo), method: :get, class: 'btn btn-default' %></td>
+    <td>
+      <%= button_to t('.finished'), finished_todo_path(todo), class: 'btn btn-default' unless todo.done %>
+    </td>
+    <td><%= button_to t('.delete'), todo, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
+
+<% if (@user.count - @user.incomplete_count) > 0 %>
+  <%= button_to t('.remove_all_complete'), remove_all_complete_todos_path, method: :delete,
+    data: { confirm: t('are_you_sure?') }, class: 'btn btn-default' %>
+<% end %>
+
+<%= button_to t('.new_todo'), new_todo_path, method: :get, class: 'btn btn-primary' %>
+  
+<hr>
+  
+<%####= paginate @user.todos %>
+
+<br />
+
+<p><%= t('.remaining_tasks') %>: <%= @user.incomplete_count %> <%= t('.out_of') %> <%= @user.count %></p>

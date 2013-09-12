@@ -17,19 +17,23 @@ en:
     didnt_receive_unlock?: "Didn't receive unlock instructions?"
     sign_up: "Sign up"
     sign_in: "Sign in"
+    sign_out: "Sign out"
     email: "Email address"
     password: "Password"
     password_confirmation: "Password confirmation"
+    remember_me?: "Remember me?"
   
   layouts:
     application:
       title: "Todolist"
 
-  todos:
+  users:
   
-    index:
+    search:
       search: "Search"
       clear_search: "Clear search"
+      
+    listing:
       edit: "Edit"
       finished: "Finished"
       delete: "Delete"
@@ -38,6 +42,7 @@ en:
       remaining_tasks: "Remaining tasks"
       out_of: "out of"
       
+  todos:
     edit:
       show: "Show"
       back: "Back"
