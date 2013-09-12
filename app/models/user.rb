@@ -14,14 +14,14 @@ class User < ActiveRecord::Base
   # For searching
   def search(phrase)
     if phrase
-      find(:all, conditions: ['todo LIKE ?', "%#{phrase}%"])
+      self.todos.find(:all, conditions: ['todo LIKE ?', "%#{phrase}%"])
     else
       find(:all)
     end
   end
   
-  def search_count
-    Todo.all.size
+  def search_count(phrase)
+    self.search(phrase).size
   end
   
   # Statistics

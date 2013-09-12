@@ -42,6 +42,9 @@ jp:
       remaining_tasks: "完成していないtodo"
       out_of: "／"
     
+    splash:
+      message: "todoリストを見るためにログインして下さい。"
+      
   todos:
     edit:
       show: "表示する"

@@ -41,6 +41,9 @@ en:
       new_todo: "New todo"
       remaining_tasks: "Remaining tasks"
       out_of: "out of"
+    
+    splash:
+      message: "To see your todo list, please sign in."
       
   todos:
     edit:

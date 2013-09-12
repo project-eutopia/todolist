@@ -1,5 +1,5 @@
 <table>
-<% @todos.each do |todo| %>
+<% @todos_paged.each do |todo| %>
   <tr>
     <td>
       <% if todo.done %>
@@ -19,14 +19,14 @@
 
 <% if (@user.count - @user.incomplete_count) > 0 %>
   <%= button_to t('.remove_all_complete'), remove_all_complete_todos_path, method: :delete,
-    data: { confirm: t('are_you_sure?') }, class: 'btn btn-default' %>
+    data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %>
 <% end %>
 
 <%= button_to t('.new_todo'), new_todo_path, method: :get, class: 'btn btn-primary' %>
   
 <hr>
   
-<%####= paginate @user.todos %>
+<%= paginate @todos_paged %>
 
 <br />
 
