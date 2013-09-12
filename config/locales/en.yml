@@ -29,16 +29,17 @@ en:
       out_of: "out of"
       
     edit:
-      creating: "Creating"
-      editing: "Editing todo"
       show: "Show"
       back: "Back"
       
     form:
+      creating: "Creating"
+      editing: "Editing"
       error_msg: "prohibited this todo from being saved"
       create: "Create"
       update: "Update"
       delete: "Delete"
+      done: "Finished"
   
   are_you_sure?: "Are you sure?"
   

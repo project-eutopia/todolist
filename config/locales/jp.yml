@@ -29,16 +29,17 @@ jp:
       out_of: "／"
       
     edit:
-      creating: "更新"
-      editing: "todoの編集"
       show: "表示する"
       back: "戻る"
       
     form:
       error_msg: "prohibited this todo from being saved"
+      creating: "更新中"
+      editing: "編集中"
       create: "作成"
       update: "更新"
       delete: "削除"
+      done: "完成"
   
   are_you_sure?: "よろしいですか?"
 
