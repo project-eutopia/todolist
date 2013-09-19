@@ -11,7 +11,16 @@ en:
       next: "Next &rsaquo;"
       truncate: "&hellip;"
     
+
   devise:
+    registrations:
+      user:
+        signed_up: "Signed up"
+        destroyed: "User destroyed"
+    failure:
+      user:
+        not_found_in_database: "User doesn't exist, or password is incorrect"
+        invalid: "User doesn't exist, or password is incorrect"
     forgot_your_password?: "Forgot your password?"
     didnt_receive_confirmation?: "Didn't receive confirmation instructions?"
     didnt_receive_unlock?: "Didn't receive unlock instructions?"
@@ -21,7 +30,11 @@ en:
     email: "Email address"
     password: "Password"
     password_confirmation: "Password confirmation"
+    current_password: "Current password"
     remember_me?: "Remember me?"
+    update: "Update"
+    leave_it_blank: "leave it blank if you don't want to change it"
+    need_cur_pass: "we need your current password to confirm your changes"
     
     sessions:
       user:
@@ -37,6 +50,8 @@ en:
     search:
       search: "Search"
       clear_search: "Clear search"
+      found_front: "Found "
+      found_back: " hits"
       
     listing:
       edit: "Edit"
@@ -61,6 +76,7 @@ en:
     tag_added: "Tag was successfully added."
 
     edit:
+      edit: "Editing todo"
       show: "Show"
       back: "Back"
       
@@ -75,6 +91,10 @@ en:
       remove_tag: "Remove tag"
       add_tag: "Add tag"
       create_new_tag: "Create new tag"
+    
+    new:
+      new: "New todo"
+      back: "Back"
   
   tags:
     success_create: "Tag was successfully created."

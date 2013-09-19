@@ -12,6 +12,15 @@ jp:
       truncate: "&hellip;"
   
   devise:
+    registrations:
+      user:
+        signed_up: "登録出来ました"
+        destroyed: "ユーザを削除されました"
+    failure:
+      user:
+        not_found_in_database: "ユーザが存在しないか、パスワードが違います"
+        invalid: "ユーザが存在しないか、パスワードが違います"
+    edit: "ユーザ更新"
     forgot_your_password?: "パスワードを忘れましたか?"
     didnt_receive_confirmation?: "Didn't receive confirmation instructions?"
     didnt_receive_unlock?: "Didn't receive unlock instructions?"
@@ -22,6 +31,10 @@ jp:
     password: "パスワード"
     password_confirmation: "パスワード確認"
     remember_me?: "覚えます?"
+    current_password: "現在のパスワード"
+    update: "更新"
+    leave_it_blank: "変えたくない場合は記入しないでください"
+    need_cur_pass: "更新するために現在のパスワードが必要です"
   
     sessions:
       user:
@@ -37,6 +50,8 @@ jp:
     search:
       search: "検索"
       clear_search: "検索をクリア"
+      found_front: ""
+      found_back: "件を見つけました"
     
     listing:
       edit: "編集"
@@ -61,6 +76,7 @@ jp:
     tag_added: "タグは追加されました。"
 
     edit:
+      edit: "todo更新中"
       show: "表示する"
       back: "戻る"
       
@@ -75,6 +91,10 @@ jp:
       remove_tag: "タグを外す"
       add_tag: "タグを追加"
       create_new_tag: "新しいタグを作成"
+  
+    new:
+      new: "新しいtodoを作成中"
+      back: "戻る"
   
   tags:
     success_create: "タグは作成されました"

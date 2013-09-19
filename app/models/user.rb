@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     if phrase
       self.todos.find(:all, conditions: ['todo LIKE ?', "%#{phrase}%"])
     else
-      find(:all)
+      self.todos.find(:all)
     end
   end
   

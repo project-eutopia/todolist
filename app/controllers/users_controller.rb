@@ -9,8 +9,8 @@ class UsersController < ApplicationController
     # Reference for pagination help:
     # http://fourthslap.blogspot.jp/2011/04/kaminari-beautiful-pagination-gem-for.html
     if params[:search].present?
-      array = @todos.search(params[:search])
-      @todos_paged = Kaminari::PaginatableArray.new( @array ).page(params[:page])
+      array = @user.search(params[:search])
+      @todos_paged = Kaminari::PaginatableArray.new( array ).page(params[:page])
     else
       @todos_paged = @todos.page(params[:page])
     end

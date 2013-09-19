@@ -7,7 +7,7 @@
   
   <% if params[:search].present? %>
     <%= button_to t('.clear_search'), root_path, method: :get, class: 'btn btn-default' %>
-    </p><p>Found <%= @user.search_count params[:search] %> hits
+    </p><p><%= t('.found_front') %><%= @user.search_count params[:search] %><%= t('.found_back') %>
     <hr>
   <% end %>
 </p>

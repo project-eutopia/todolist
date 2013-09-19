@@ -11,14 +11,6 @@
     </div>
   <% end %>
   
-  <legend>
-    <% if f.object.new_record? %>
-      <%= t('.creating') %>
-    <% else %>
-      <%= t('.editing') %>
-    <% end %>
-  </legend>
-  
   <%= f.input :todo, input_html: { class: "span6" } %>
   <% if f.object.new_record? == false %>
     <%= f.input :done, label: t('.done'), as: :boolean %>
