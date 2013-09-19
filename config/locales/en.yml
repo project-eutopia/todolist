@@ -40,6 +40,8 @@ en:
       
     listing:
       edit: "Edit"
+      tags: "Tags"
+      tags_all: "Users' Tags"
       finished: "Finished"
       delete: "Delete"
       remove_all_complete: "Remove all complete"
@@ -51,20 +53,36 @@ en:
       message: "To see your todo list, please sign in."
       
   todos:
+    success_create: "Todo was successfully created."
+    success_update: "Todo was successfully updated."
+    success_add: "Todo was successfully added."
+    success_destroy: "Todo was successfully destroyed."
+    tag_removed: "Tag was successfully removed."
+    tag_added: "Tag was successfully added."
+
     edit:
       show: "Show"
       back: "Back"
       
     form:
+      tags: "Tags"
       creating: "Creating"
       editing: "Editing"
-      error_msg: "prohibited this todo from being saved"
       create: "Create"
       update: "Update"
       delete: "Delete"
       done: "Finished"
+      remove_tag: "Remove tag"
+      add_tag: "Add tag"
+      create_new_tag: "Create new tag"
   
+  tags:
+    success_create: "Tag was successfully created."
+    success_update: "Tag was successfully updated."
+  
+  add_new_tag: "Add new tag"
   are_you_sure?: "Are you sure?"
+  error_msg: "prohibited this from being saved"
   
   helpers:
     submit:

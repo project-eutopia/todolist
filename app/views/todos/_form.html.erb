@@ -1,7 +1,7 @@
 <%= simple_form_for @todo, :html => { class: 'form-horizontal' } do |f| %>
   <% if @todo.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@todo.errors.count, "error") %> <%= t('.error_msg') %>:</h2>
+      <h2><%= pluralize(@todo.errors.count, "error") %> <%= t('error_msg') %>:</h2>
 
       <ul>
       <% @todo.errors.full_messages.each do |msg| %>
@@ -19,9 +19,37 @@
     <% end %>
   </legend>
   
-  <%= f.input :todo, :input_html => { class: "span6" } %>
+  <%= f.input :todo, input_html: { class: "span6" } %>
   <% if f.object.new_record? == false %>
     <%= f.input :done, label: t('.done'), as: :boolean %>
+
+    <h4><%= t('.tags') %></h4>
+    <table class="table">
+    <% @todo.tags.each do |tag| %>
+      <tr>
+        <td><%= tag.title %></td>
+        <td><%= link_to t('.remove_tag'), remove_tag_todo_path(todo_id: @todo, tag_id: tag), controller: :todo, method: :delete %></td>
+      </tr>
+    <% end %>
+    
+    <% if @todo.remaining_tags.size > 0 %>
+      <tr>
+        <td>
+          <select name="new_tag_id">
+            <option value="0"></option>
+            <%# current_user.tags.each %>
+            <% @todo.remaining_tags.each do |tag| %>
+                <option value="<%= tag.id %>"><%= tag.title %></option>
+            <% end %>
+          </select>
+        </td>
+        <td>
+          <%= f.submit t('.add_tag'), method: :post, class: 'btn btn-default', name: :add_tag %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    <%= link_to t('.create_new_tag'), new_tag_path(return_todo_id: @todo.id) %>
   <% end %>
   
   <div class="form-actions">
@@ -30,7 +58,7 @@
       <%= f.button :submit, :class => 'btn-primary' %>
     <% else %>
       <%= button_to t('.update'), f.object, method: :post, class: 'btn btn-primary' %>
-      <%= button_to t('.delete'), f.object, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %>
+      <%= button_to t('.delete'), f.object, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %>  
     <% end %>
     
   </div>

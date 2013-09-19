@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # User has many todos
   has_many :todos
+  has_many :tags
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

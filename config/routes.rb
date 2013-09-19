@@ -5,16 +5,24 @@ Todolist::Application.routes.draw do
   resources :users, only: [:index, :splash]
 
   scope '(:locale)' do
+    resources :tags
+    
     resources :todos do
       member do
         post :finished
+        delete :remove_tag, to: 'todos#remove_tag'
+        post :add_tag, to: 'todos#add_tag'
       end
+      
+      collection do
+      end
+      
     end
     
     resources :users do
       member do
-        get 'clear_search', to: 'users#clear_search'
-        delete 'remove_all_complete', to: 'users#remove_all_complete'
+        get :clear_search, to: 'users#clear_search'
+        delete :remove_all_complete, to: 'users#remove_all_complete'
       end
     end
     

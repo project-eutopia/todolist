@@ -40,6 +40,8 @@ jp:
     
     listing:
       edit: "編集"
+      tags: "タグ"
+      tags_all: "タグ一覧"
       finished: "完成"
       delete: "削除"
       remove_all_complete: "完成したのをすべて削除"
@@ -51,23 +53,38 @@ jp:
       message: "todoリストを見るためにログインして下さい。"
       
   todos:
+    success_create: "Todoは無事に作成されました。"
+    success_update: "Todoは無事に更新されました。"
+    success_add: "Todoは無事に追加されました。"
+    success_destroy: "Todoは無事に削除されました。"
+    tag_removed: "タグは外されました。"
+    tag_added: "タグは追加されました。"
+
     edit:
       show: "表示する"
       back: "戻る"
       
     form:
-      error_msg: "prohibited this todo from being saved"
+      tags: "タグ一覧"
       creating: "更新中"
       editing: "編集中"
       create: "作成"
       update: "更新"
       delete: "削除"
       done: "完成"
+      remove_tag: "タグを外す"
+      add_tag: "タグを追加"
+      create_new_tag: "新しいタグを作成"
   
+  tags:
+    success_create: "タグは作成されました"
+    success_update: "タグは更新されました"
+    
+  add_new_tag: "新しいタグを作成"
   are_you_sure?: "よろしいですか?"
+  error_msg: "のために保存出来ませんでした"
 
   helpers:
     submit:
       create: "作成"
       update: "更新"
-      cancel: "caaaane"

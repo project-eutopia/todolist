@@ -13,6 +13,7 @@
       <%= button_to t('.finished'), finished_todo_path(todo), class: 'btn btn-default' unless todo.done %>
     </td>
     <td><%= button_to t('.delete'), todo, method: :delete, data: { confirm: t('are_you_sure?') }, class: 'btn btn-danger' %></td>
+    <td><% if todo.tags.size > 0 %><%= t('.tags') %>: <font color="gray"><%= todo.tags_comma_list %></font><% end %></td>
   </tr>
 <% end %>
 </table>
@@ -24,6 +25,8 @@
 
 <%= button_to t('.new_todo'), new_todo_path, method: :get, class: 'btn btn-primary' %>
   
+<%= button_to t('.tags_all'), tags_path, method: :get, class: 'btn btn-primary' %>
+
 <hr>
   
 <%= paginate @todos_paged %>
