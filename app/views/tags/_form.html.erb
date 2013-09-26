@@ -16,7 +16,7 @@
     <%= f.text_field :title %>
   </div>
   <div class="actions">
-    <% if params[:return_todo_id].present? %><%= params[:return_todo_id] %><% end %>
+    <% if params[:return_todo_id].present? %><%#= params[:return_todo_id] %><% end %>
     <%= f.submit %>
   </div>
 <% end %>

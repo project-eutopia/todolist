@@ -49,7 +49,8 @@ jp:
   
     search:
       search: "検索"
-      clear_search: "検索をクリア"
+      clear_filters: "フィルターをクリア"
+      tag_filter: "タグでフィルター"
       found_front: ""
       found_back: "件を見つけました"
     

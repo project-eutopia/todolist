@@ -29,7 +29,6 @@
         <td>
           <select name="new_tag_id">
             <option value="0"></option>
-            <%# current_user.tags.each %>
             <% @todo.remaining_tags.each do |tag| %>
                 <option value="<%= tag.id %>"><%= tag.title %></option>
             <% end %>

@@ -1,13 +1,31 @@
 <p>
-  
-  <%= form_tag root_path, method: 'get' do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag t('.search'), todo: nil, class: 'btn btn-default' %>
-  <% end %>
-  
-  <% if params[:search].present? %>
-    <%= button_to t('.clear_search'), root_path, method: :get, class: 'btn btn-default' %>
-    </p><p><%= t('.found_front') %><%= @user.search_count params[:search] %><%= t('.found_back') %>
-    <hr>
-  <% end %>
+  <table>
+    <tr>
+      <td>
+        <%= form_tag root_path, method: 'get' do %>
+          <%= submit_tag t('.search'), todo: nil, class: 'btn btn-default' %>
+          <%= text_field_tag :search, params[:search] %>
+        <% end %>
+      </td>
+      <td></td>
+      <td>
+      
+        <%= form_tag root_path, method: 'get' do %>
+          <%= submit_tag t('.tag_filter'), todo: nil, class: 'btn btn-default' %>
+          <%= select_tag("filter_tag_id", options_from_collection_for_select(current_user.tags, :id, :title), include_blank: true) %>
+        <% end %>
+        
+      </td>
+    </tr>
+    
+    <% if params[:search].present? || params[:filter_tag_id].present? %>
+      <tr>
+        <td>
+          <%= button_to t('.clear_filters'), root_path, method: :get, class: 'btn btn-default' %>
+          <p><%= t('.found_front') %><%= @todos.size %><%= t('.found_back') %></p>
+          <hr>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </p>
